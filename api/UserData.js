@@ -1,7 +1,7 @@
 import { clientCredentials } from '../utils/client';
 
 const getSingleUser = (id) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials}/user/${id}`, {
+  fetch(`${clientCredentials.databaseURL}/user/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

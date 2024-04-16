@@ -18,7 +18,7 @@ export default function NavBar() {
       <div className="right-nav fw-semibold">
         <Nav className="me-auto">
           <Link passHref href="/orders">
-            <Nav.Link>Orders</Nav.Link>
+            <Nav.Link className="mt-1">Orders</Nav.Link>
           </Link>
           <UserMenu />
         </Nav>
