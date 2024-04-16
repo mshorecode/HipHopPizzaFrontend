@@ -5,22 +5,23 @@ import {
   Navbar, //
   Nav,
 } from 'react-bootstrap';
-import UserMenu from './UserMenu';
 
 export default function NavBar() {
   return (
     <Navbar bg="dark" variant="dark" className="nav">
       <div>
         <Link passHref href="/">
-          <Navbar.Brand>Hip Hop Pizza</Navbar.Brand>
+          <Navbar.Brand>Urban Pizza Co.</Navbar.Brand>
         </Link>
       </div>
-      <div className="right-nav fw-semibold">
+      <div className="right-nav">
         <Nav className="me-auto">
           <Link passHref href="/orders">
-            <Nav.Link className="mt-1">Orders</Nav.Link>
+            <Nav.Link className="mr-1 font-bold">Orders</Nav.Link>
           </Link>
-          <UserMenu />
+          <Link passHref href="/revenue">
+            <Nav.Link className="mr-3 font-bold">Revenue</Nav.Link>
+          </Link>
         </Nav>
       </div>
     </Navbar>
