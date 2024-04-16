@@ -13,9 +13,9 @@
 
 body {
   min-height: 100vh;
-  /* background: url('/images/background.jpg') no-repeat; */
-  /* background-size: cover; */
-  /* background-position: center; */
+  background: url('/images/background.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 a {

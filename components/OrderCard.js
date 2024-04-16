@@ -22,9 +22,14 @@ export default function OrderCard({ order }) {
           <p className="text-sm font-bold">Order Type</p>
           <p className="text-sm font-medium ml-2">{order.orderTypeId === 1 ? 'Walk-In' : 'Call-In'}</p>
         </div>
-        <Button type="button" className="text-xs font-bold px-6 last:ml-auto rounded-full bg-black border-black">
-          View
-        </Button>
+        <div className="last:ml-auto">
+          <Button type="button" className="text-xs font-bold px-6 rounded-full bg-black border-black mr-2">
+            Edit
+          </Button>
+          <Button type="button" className="text-xs font-bold px-6 rounded-full bg-black border-black">
+            View
+          </Button>
+        </div>
       </div>
     </div>
   );

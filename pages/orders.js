@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import getOrders from '../api/OrdersData';
+import { getOrders } from '../api/OrdersData';
 import OrderCard from '../components/OrderCard';
 
 export default function Orders() {
