@@ -1,29 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'bootstrap';
+import { Button } from 'react-bootstrap';
 
 export default function OrderCard({ order }) {
   return (
-    <div className="orderCard card">
-      <div className="card-body cardStyle" style={{ height: '280px', width: '200px' }}>
-        <div>
-          <h5 className="card-title">{order.customerName}</h5>
-          <p className="card-text bold">{order.isComplete ? 'closed' : 'open'}</p>
-          <p className="card-text bold">{order.customerPhone}</p>
-          <p className="card-text emailSmall bold">{order.customerEmail}</p>
-          <p className="card-text bold">{order.orderTypeId}</p>
-          <Button href="#" id={`order-details--${order.id}`}>
-            Details
-          </Button>
-          {order.isComplete ? null : (
-            <>
-              <Button href="#" id={`order-edit--${order.id}`} className="card-link">
-                Edit
-              </Button>
-              <Button href="#" id={`order-delete--${order.id}`} className="fa-solid fa-trash-can" />
-            </>
-          )}
+    <div className="border-black border-[3px] rounded-md p-6 bg-[#f0ead6] h-56">
+      <div className="flex flex-col gap-[1px]">
+        <h5 className="text-lg font-bold">
+          {order.customerName}
+          <span className="ml-2">{order.isComplete ? <span className="dot-green" /> : <span className="dot-red" />}</span>
+        </h5>
+        <div className="flex flex-col">
+          <p className="text-sm font-bold">Phone</p>
+          <p className="text-sm font-medium ml-2">{order.customerPhone}</p>
         </div>
+        <div className="flex flex-col">
+          <p className="text-sm font-bold">Email</p>
+          <p className="text-sm font-medium ml-2">{order.customerEmail}</p>
+        </div>
+        <div className="flex flex-col">
+          <p className="text-sm font-bold">Order Type</p>
+          <p className="text-sm font-medium ml-2">{order.orderTypeId === 1 ? 'Walk-In' : 'Call-In'}</p>
+        </div>
+        <Button type="button" className="text-xs font-bold px-6 last:ml-auto rounded-full bg-black border-black">
+          View
+        </Button>
       </div>
     </div>
   );
