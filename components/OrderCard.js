@@ -8,7 +8,7 @@ export default function OrderCard({ order }) {
       <div className="flex flex-col gap-[1px]">
         <h5 className="text-lg font-bold">
           {order.customerName}
-          <span className="ml-2">{order.isComplete ? <span className="dot-green" /> : <span className="dot-red" />}</span>
+          <span className="ml-2">{order.isComplete ? <span className="dot-red" /> : <span className="dot-green" />}</span>
         </h5>
         <div className="flex flex-col">
           <p className="text-sm font-bold">Phone</p>
@@ -23,10 +23,10 @@ export default function OrderCard({ order }) {
           <p className="text-sm font-medium ml-2">{order.orderTypeId === 1 ? 'Walk-In' : 'Call-In'}</p>
         </div>
         <div className="last:ml-auto">
-          <Button type="button" href={`/orders/edit/${order.id}`} className="border-none border-[2px] text-xs font-bold px-6 rounded-full bg-slate-800 mr-2">
+          <Button type="button" href={`/orders/edit/${order.id}`} className="border-none text-xs font-bold px-6 rounded-full bg-slate-800 mr-2">
             Edit
           </Button>
-          <Button type="button" href={`/orders/${order.id}`} className="border-none border-[2px] text-xs font-bold px-6 rounded-full bg-slate-800">
+          <Button type="button" href={`/orders/${order.id}`} className="border-none text-xs font-bold px-6 rounded-full bg-slate-800">
             View
           </Button>
         </div>

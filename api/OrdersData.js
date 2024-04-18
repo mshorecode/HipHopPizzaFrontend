@@ -48,4 +48,24 @@ const editOrder = (formData) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export { getOrders, getOrderById, editOrder };
+const createOrder = (formData) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/orders`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        resolve({});
+      } else {
+        reject(resp.json());
+      }
+    })
+    .catch(reject);
+});
+
+export {
+  getOrders, getOrderById, editOrder, createOrder,
+};

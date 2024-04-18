@@ -16,7 +16,6 @@ body {
   background: url('/images/background.jpg') no-repeat;
   background-size: cover;
   background-position: center;
-  padding-top: 60px;
 }
 
 a {
@@ -32,10 +31,10 @@ a {
 
 .nav {
   padding: 0.5rem;
-  background: slate !important;
+  /* background: linear-gradient(to bottom, black, transparent) !important; */
+  background: transparent !important;
   width: 100%;
-  top: 0;
-  position: fixed;
+  height: 80px;
 }
 
 .navbar-brand {

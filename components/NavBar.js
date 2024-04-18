@@ -1,10 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
-import {
-  Navbar, //
-  Nav,
-} from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 export default function NavBar() {
   return (

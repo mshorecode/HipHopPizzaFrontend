@@ -9,7 +9,7 @@ function Home() {
         </Button>
       </div>
       <div>
-        <Button type="button" className="w-60 rounded-full border-white border-[2px] bg-black font-medium">
+        <Button type="button" className="w-60 rounded-full border-white border-[2px] bg-black font-medium" href="/orders/new">
           Create Order
         </Button>
       </div>
