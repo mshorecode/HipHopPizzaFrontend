@@ -66,6 +66,25 @@ const createOrder = (formData) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// TODO: Figure out bad response
+const addItem = (id) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/order/additem`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(id),
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        resolve({});
+      } else {
+        reject(resp.json());
+      }
+    })
+    .catch(reject);
+});
+
 export {
-  getOrders, getOrderById, editOrder, createOrder,
+  getOrders, getOrderById, editOrder, createOrder, addItem,
 };
