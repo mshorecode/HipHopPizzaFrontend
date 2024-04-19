@@ -66,6 +66,41 @@ const createOrder = (formData) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const addItem = (formData) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/order/additem`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        resolve({});
+      } else {
+        reject(resp.json());
+      }
+    })
+    .catch(reject);
+});
+
+const removeItem = (formData) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/order/removeitem`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  })
+    .then((resp) => {
+      if (resp.ok) {
+        resolve({});
+      } else {
+        reject(resp.json());
+      }
+    })
+    .catch(reject);
+});
 export {
-  getOrders, getOrderById, editOrder, createOrder,
+  getOrders, getOrderById, editOrder, createOrder, addItem, removeItem,
 };
