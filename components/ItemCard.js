@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'next/image';
 import { Button } from 'react-bootstrap';
-import { addItem } from '../api/OrdersData';
+import { useRouter } from 'next/router';
+import { addItem, removeItem } from '../api/OrdersData';
 
 export default function ItemCard({ item }) {
-  const addToOrder = () => {
-    addItem(item.id);
+  const router = useRouter();
+  const { id } = router.query;
+  const [formData] = useState({
+    orderId: id,
+    itemId: item.id,
+  });
+
+  const addItemToOrder = () => {
+    addItem(formData);
+  };
+
+  const removeItemFromOrder = () => {
+    removeItem(formData);
   };
 
   return (
@@ -18,9 +30,14 @@ export default function ItemCard({ item }) {
         <h3 className="text-black font-bold">{item.name}</h3>
         <p className="text-black">${item.price}</p>
       </div>
-      <Button type="button" onClick={addToOrder} className="add-button bg-slate-800 font-semibold">
-        +
-      </Button>
+      <div className="flex justify-between">
+        <Button type="button" onClick={removeItemFromOrder} className="add-button bg-slate-800 font-semibold">
+          -
+        </Button>
+        <Button type="button" onClick={addItemToOrder} className="add-button bg-slate-800 font-semibold">
+          +
+        </Button>
+      </div>
     </div>
   );
 }
