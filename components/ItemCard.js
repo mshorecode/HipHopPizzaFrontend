@@ -30,7 +30,7 @@ export default function ItemCard({ item }) {
         <h3 className="text-black font-bold">{item.name}</h3>
         <p className="text-black">${item.price}</p>
       </div>
-      <div className="flex justify-between">
+      <div className="flex gap-5">
         <Button type="button" onClick={removeItemFromOrder} className="add-button bg-slate-800 font-semibold">
           -
         </Button>
