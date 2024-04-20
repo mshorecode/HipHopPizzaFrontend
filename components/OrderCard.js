@@ -23,6 +23,9 @@ export default function OrderCard({ order }) {
           <p className="text-sm font-medium ml-2">{order.orderTypeId === 1 ? 'Walk-In' : 'Call-In'}</p>
         </div>
         <div className="last:ml-auto">
+          <Button type="button" href={`/orders/add/${order.id}`} className="border-none text-xs font-bold px-6 rounded-full bg-slate-800 mr-2">
+            Add +
+          </Button>
           <Button type="button" href={`/orders/edit/${order.id}`} className="border-none text-xs font-bold px-6 rounded-full bg-slate-800 mr-2">
             Edit
           </Button>
