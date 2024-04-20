@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import getItems from '../../api/ItemData';
-import { getOrderById } from '../../api/OrdersData';
-import ItemCard from '../../components/ItemCard';
+import { getItemsByOrder, getOrderById } from '../../api/OrdersData';
 
 export default function OrderDetails() {
   const router = useRouter();
@@ -10,18 +8,14 @@ export default function OrderDetails() {
   const [order, setOrder] = useState([]);
   const [items, setItems] = useState([]);
 
-  const renderItems = () => {
-    getItems().then((data) => setItems(data));
-  };
-
   useEffect(() => {
-    renderItems();
     getOrderById(id).then((data) => setOrder(data));
+    getItemsByOrder(id).then((data) => setItems(data));
   }, [id]);
 
   return (
-    <div className="flex flex-col mt-16">
-      <div className="flex gap-10 justify-center mb-4">
+    <div className="flex justify-around mt-16">
+      <div className="flex flex-col gap-10 justify-center mb-4">
         <div>
           <p className="text-white font-bold">Customer Name</p>
           <p className="text-white ml-4">{order.customerName}</p>
@@ -39,12 +33,13 @@ export default function OrderDetails() {
           <p className="text-white ml-4">{order.orderTypeId === 1 ? 'Walk-In' : 'Call-In'}</p>
         </div>
       </div>
-      <div className="flex justify-center mt-2">
-        <div className="items-layout">
-          {items.map((item) => (
-            <ItemCard key={item.id} item={item} onUpdate={renderItems} />
-          ))}
-        </div>
+      <div className="flex flex-col items-center mt-2 gap-4">
+        <p className="text-white font-bold fs-4 mb-4">Items on Order</p>
+        {items.map((item) => (
+          <div className="flex gap-10">
+            <p className="text-white font-bold">{item.name}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
