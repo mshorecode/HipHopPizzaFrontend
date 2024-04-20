@@ -101,6 +101,19 @@ const removeItem = (formData) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+
+const getItemsByOrder = (id) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/order/items/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then((resp) => resolve(resp.json()))
+    .catch(reject);
+});
+
 export {
-  getOrders, getOrderById, editOrder, createOrder, addItem, removeItem,
+  getOrders, getOrderById, editOrder, createOrder, addItem, removeItem, getItemsByOrder,
 };
